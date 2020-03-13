@@ -27,9 +27,9 @@ jobs:
     - name: Build and push
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: cd src/MattermostBot.Host && heroku container:push -a mattermost-bot-csh worker 
+      run: cd src/MattermostBot.Host && heroku container:push -a mattermost-bot-csh web 
     - name: Release
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: cd src/MattermostBot.Host && heroku container:release -a mattermost-bot-csh worker 
+      run: cd src/MattermostBot.Host && heroku container:release -a mattermost-bot-csh web 
 
