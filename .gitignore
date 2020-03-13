@@ -1,0 +1,9 @@
+.vscode/
+Debug/
+Release/
+obj/
+out/
+bin/
+
+resources.json
+notificationsTmp/
