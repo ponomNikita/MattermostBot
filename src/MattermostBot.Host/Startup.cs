@@ -1,9 +1,11 @@
+using System.Text.Json;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Serialization;
 using Serilog;
 using SimpleInjector;
 
@@ -32,10 +34,11 @@ namespace MattermostBot.Host
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore().AddJsonOptions(options => 
-            {
-                options.JsonSerializerOptions.IgnoreNullValues = true;
-            });
+            services.AddControllers()
+                .AddJsonOptions(options => 
+                {
+                    options.JsonSerializerOptions.IgnoreNullValues = true;
+                });
 
             services.AddSimpleInjector(_container, options =>
             {

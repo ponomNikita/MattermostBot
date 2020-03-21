@@ -1,37 +1,37 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MattermostBot.Host.Models
 {
     public class HookRequest
     {
-        [JsonProperty(PropertyName = "channel_id")]
+        [JsonPropertyName("channel_id")]
         public string ChannelId { get; set; }
 
-        [JsonProperty(PropertyName = "channel_name")]
+        [JsonPropertyName("channel_name")]
         public string ChannelName { get; set; }
 
-        [JsonProperty(PropertyName = "team_domain")]
+        [JsonPropertyName("team_domain")]
         public string TeamDomain { get; set; }
 
-        [JsonProperty(PropertyName = "post_id")]
+        [JsonPropertyName("post_id")]
         public string PostId { get; set; }
 
-        [JsonProperty(PropertyName = "text")]
+        [JsonPropertyName("text")]
         public string Text { get; set; }
 
-        [JsonProperty(PropertyName = "timestamp")]
+        [JsonPropertyName("timestamp")]
         public long Timestamp { get; set; }
 
-        [JsonProperty(PropertyName = "trigger_word")]
-        public long TriggerWord { get; set; }
+        [JsonPropertyName("trigger_word")]
+        public string TriggerWord { get; set; }
 
-        [JsonProperty(PropertyName = "user_id")]
-        public long UserId { get; set; }
+        [JsonPropertyName("user_id")]
+        public string UserId { get; set; }
 
-        [JsonProperty(PropertyName = "user_name")]
-        public long UserName { get; set; }
+        [JsonPropertyName("user_name")]
+        public string UserName { get; set; }
 
-        [JsonProperty(PropertyName = "file_ids")]
-        public long FileIds { get; set; }
+        [JsonPropertyName("file_ids")]
+        public string FileIds { get; set; }
     }
 }

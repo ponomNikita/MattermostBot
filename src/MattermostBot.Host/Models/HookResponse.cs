@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MattermostBot.Host.Models
 {
@@ -10,7 +10,7 @@ namespace MattermostBot.Host.Models
         /// To trigger notifications, use @<username>, @channel and @here like you would in normal Mattermost messaging.
         /// </summary>
         [Required]
-        [JsonProperty(PropertyName = "text")]
+        [JsonPropertyName("text")]
         public string Text { get; set; }
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace MattermostBot.Host.Models
         /// Set to blank or “post” to create a regular message.
         /// Defaults to “post”.
         /// </summary>
-        [JsonProperty(PropertyName = "response_type")]
+        [JsonPropertyName("response_type")]
         public string ResponseType { get; set; }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace MattermostBot.Host.Models
         /// Defaults to the username set during webhook creation or the webhook creator's username if the former was not set.
         /// Must be enabled in the configuration.
         /// </summary>
-        [JsonProperty(PropertyName = "username")]
+        [JsonPropertyName("username")]
         public string Username { get; set; }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace MattermostBot.Host.Models
         /// Defaults to the URL set during webhook creation or the webhook creator's profile picture if the former was not set.
         /// Must be enabled in the configuration.
         /// </summary>
-        [JsonProperty(PropertyName = "icon_url")]
+        [JsonPropertyName("icon_url")]
         public string IconUrl { get; set; }
 
         // ToDo Attachmets https://developers.mattermost.com/integrate/outgoing-webhooks/
@@ -43,7 +43,7 @@ namespace MattermostBot.Host.Models
         /// Sets the post type, mainly for use by plugins.
         /// If not blank, must begin with “custom_". Passing attachments will ignore this field and set the type to slack\_attachment.
         /// </summary>
-        [JsonProperty(PropertyName = "type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace MattermostBot.Host.Models
         /// Mainly used by other integrations accessing posts through the REST API.
         /// The following keys are reserved: “from_webhook”, “override_username”, “override_icon_url”, “webhook_display_name” and “attachments”.
         /// </summary>
-        [JsonProperty(PropertyName = "props")]
+        [JsonPropertyName("props")]
         public string Props { get; set; }
     }
 }
